@@ -1,6 +1,7 @@
 package com.example.light.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.NoArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "users")
 @SequenceGenerator(name ="USERS_ID_SEQ", sequenceName = "users_id_seq", allocationSize = 1)
+@NoArgsConstructor
 public class User {
 
     @Id

@@ -4,13 +4,11 @@ import io.jsonwebtoken.Jwts
 import org.springframework.stereotype.Component
 
 @Component
-class JwtUtils(
-        private val jwtConstants: JwtConstants
-) {
+class JwtUtils{
 
     fun getSubject(token: String): String =
             Jwts.parserBuilder()
-                    .setSigningKey(jwtConstants.SECRET_KEY)
+                    .setSigningKey(JwtConstants.SECRET_KEY)
                     .build()
                     .parseClaimsJws(token)
                     .body

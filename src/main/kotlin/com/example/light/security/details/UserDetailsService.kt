@@ -1,7 +1,7 @@
 package com.example.light.security.details
 
 import com.example.light.security.exceptions.UserNotFoundException
-import com.example.light.user.UsersRepository
+import com.example.light.user.UserRepository
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class UserDetailsService(
-        private val usersRepository: UsersRepository
+        private val usersRepository: UserRepository
 ) : UserDetailsService {
 
     override fun loadUserByUsername(username: String?): UserDetails {

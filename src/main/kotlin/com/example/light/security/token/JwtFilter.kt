@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse
 @Component
 class JwtFilter(
         private val tokenValidator: TokenValidator,
-        private val jwtUtils: JwtUtils,
-        private val jwtConstants: JwtConstants
+        private val jwtUtils: JwtUtils
 ) : OncePerRequestFilter() {
 
     override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, filterChain: FilterChain) {
-        val token = request.getHeader(jwtConstants.AUTH_HEADER)
-        if(token == null || !token.startsWith(jwtConstants.TOKEN_PREFIX)){
+
+        val token = request.getHeader(JwtConstants.AUTH_HEADER)
+        if(token == null || !token.startsWith(JwtConstants.TOKEN_PREFIX)){
             filterChain.doFilter(request, response)
             return;
         }

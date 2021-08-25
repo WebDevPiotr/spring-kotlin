@@ -4,12 +4,10 @@ import org.springframework.http.HttpHeaders
 import org.springframework.stereotype.Component
 
 @Component
-class HeadersFactory(
-        private val jwtConstants: JwtConstants
-) {
+class HeadersFactory {
 
     fun getHeaders(token: String): HttpHeaders =
             HttpHeaders().apply {
-                add(jwtConstants.AUTH_HEADER, "${jwtConstants.TOKEN_PREFIX} $token")
+                add(JwtConstants.AUTH_HEADER, "${JwtConstants.TOKEN_PREFIX} $token")
             }
 }
