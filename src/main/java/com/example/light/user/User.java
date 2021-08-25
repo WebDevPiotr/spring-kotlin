@@ -1,6 +1,6 @@
 package com.example.light.user;
 
-import net.minidev.json.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;

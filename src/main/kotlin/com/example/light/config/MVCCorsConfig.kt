@@ -17,7 +17,8 @@ class MVCCorsConfig {
                         .allowedOrigins("*")
                         .allowedMethods("*")
                         .allowedHeaders("Accept", "Content-Type", "Authorization")
-                        .exposedHeaders("Access-Control-Allow-Origin")
+                        .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials")
+                        .allowCredentials(true);
             }
         }
     }
