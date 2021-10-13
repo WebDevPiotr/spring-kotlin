@@ -16,8 +16,8 @@ class JwtFilter(
 
     override fun doFilterInternal(request: HttpServletRequest, response: HttpServletResponse, filterChain: FilterChain) {
 
-        val token = request.getHeader(JwtConstants.AUTH_HEADER)
-        if(token == null || !token.startsWith(JwtConstants.TOKEN_PREFIX)){
+        val token = request.getHeader(AUTH_HEADER)
+        if(token == null || !token.startsWith(TOKEN_PREFIX)){
             filterChain.doFilter(request, response)
             return;
         }

@@ -8,6 +8,6 @@ class HeadersFactory {
 
     fun getHeaders(token: String): HttpHeaders =
             HttpHeaders().apply {
-                add(JwtConstants.AUTH_HEADER, "${JwtConstants.TOKEN_PREFIX} $token")
+                add(AUTH_HEADER, "$TOKEN_PREFIX $token")
             }
 }

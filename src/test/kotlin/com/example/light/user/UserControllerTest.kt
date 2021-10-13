@@ -11,7 +11,7 @@ class UserControllerTest : IntegrationTest() {
 
     @Test
     @DisplayName("Check if token filter works")
-    fun signInWhenUserExist() {
+    fun checkIfJwtFilterWorks() {
         mockMvc.perform(
             get("/users")
         )

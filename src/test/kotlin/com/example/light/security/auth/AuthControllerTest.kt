@@ -1,8 +1,8 @@
-package com.example.light.security
+package com.example.light.security.auth
 
 import com.example.light.base.IntegrationTest
 import com.example.light.security.auth.dto.LoginRequest
-import com.example.light.security.token.JwtConstants
+import com.example.light.security.token.AUTH_HEADER
 import com.example.light.user.MockUser
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -23,7 +23,7 @@ class AuthControllerTest : IntegrationTest() {
                 .content(objectMapper.writeValueAsString(request))
         )
             .andExpect(status().isOk)
-            .andExpect(header().exists(JwtConstants.AUTH_HEADER))
+            .andExpect(header().exists(AUTH_HEADER))
     }
 
     @Test
@@ -36,7 +36,7 @@ class AuthControllerTest : IntegrationTest() {
                 .content(objectMapper.writeValueAsString(request))
         )
             .andExpect(status().isNotFound)
-            .andExpect(header().doesNotExist(JwtConstants.AUTH_HEADER))
+            .andExpect(header().doesNotExist(AUTH_HEADER))
     }
 
     @Test
@@ -49,6 +49,6 @@ class AuthControllerTest : IntegrationTest() {
                 .content(objectMapper.writeValueAsString(request))
         )
             .andExpect(status().isForbidden)
-            .andExpect(header().doesNotExist(JwtConstants.AUTH_HEADER))
+            .andExpect(header().doesNotExist(AUTH_HEADER))
     }
 }
